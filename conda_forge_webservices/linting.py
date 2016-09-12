@@ -64,7 +64,7 @@ def compute_lint_message(repo_owner, repo_name, pr_id, ignore_base=False):
             "[skip lint]",
         ]
         commit_msg = repo.commit(sha).message
-        should_skip = any([_ in commit_msg for _ in skip_msgs])
+        should_skip = any([msg in commit_msg for msg in skip_msgs])
         if should_skip:
             return {}
 
